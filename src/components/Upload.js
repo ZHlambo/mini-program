@@ -1,31 +1,16 @@
 // components/Upload.js
+// TODO:cutImage回调没做
 import {
   upload
-} from "../utils/upload.js"
+} from "../utils/upload.js";
 
-/**
- * 判断是本地图片还是远程图片（上传图片用）
- *
- * @return {boolean}
- */
-const isLocal = function(src) {
-  if (
-    src &&
-    src.indexOf('http://miniprogram') !== 0 &&
-    src.indexOf('https://miniprogram') !== 0 &&
-    src.indexOf('http://static.d.intbee.com') !== 0 &&
-    src.indexOf('https://static.d.intbee.com') !== 0
-  ) {
-    return true;
-  }
-  return false;
-};
+import {
+  windowWidthPX,
+  pxTorpxScale,
+  windowHeightPX,
+  isLocal
+} from "../utils/utils.js";
 
-
-const windowWidth = 750;
-const windowWidthPX = wx.getSystemInfoSync().windowWidth;
-const pxTorpxScale = windowWidth / windowWidthPX;
-const windowHeightPX = wx.getSystemInfoSync().windowHeight;
 const imageTasks = getApp().imageTasks;
 
 Component({
@@ -37,13 +22,17 @@ Component({
       type: Boolean,
       value: true,
     },
-    src: {
-      type: String,
-      value: "",
-    },
     minWidth: {
       type: Number,
       value: 0
+    },
+    cutImage: {
+      type: Boolean,
+      value: false,
+    },
+    src: {
+      type: String,
+      value: "",
     }
   },
 
@@ -57,12 +46,26 @@ Component({
     let {
       src
     } = this.data;
+    let event = `cutImage${this.__wxExparserNodeId__}`;
     if (isLocal(src)) {
       this._uploadRequest(src);
     }
     this.setData({
-      canvasId: this.__wxExparserNodeId__
+      canvasId: this.__wxExparserNodeId__,
+      event
     });
+    // getApp()
+    //   .eventHub.on(event, src => {
+    //     this._uploadRequest(src);
+    //     // 通知外部，图片正在上传中
+    //     this.triggerEvent('upload', {
+    //       src
+    //     }, {});
+    //     this.setData({
+    //       _src: src,
+    //       src
+    //     });
+    //   });
   },
   detached: function() {
     let {
@@ -79,6 +82,17 @@ Component({
         success: e => {
           let tempFilePaths = e.tempFilePaths;
           if (!tempFilePaths || !tempFilePaths[0]) {
+            return;
+          }
+
+          let {
+            cutImage,
+            event
+          } = this.data;
+          if (cutImage) {
+            wx.navigateTo({
+              url: `/cut_image/index?src=${tempFilePaths[0]}&event=${event}`,
+            });
             return;
           }
 

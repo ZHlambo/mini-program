@@ -1,0 +1,6 @@
+<!--cut_image/index.wxml-->
+<view style='overflow:hidden' catchtouchstart='start' catchtouchmove='move' catchtouchend='end' catchtouchcancel='end'>
+  <canvas style="width:{{windowWidthRPX}}rpx;height:{{windowHeightRPX - 90}}rpx;" canvas-id='{{canvasId}}'></canvas>
+  <view stytle="backgound:rgba(0,0,0,0.6);width:100%;heigh:100%;"></view>
+</view>
+<view class="backgound:red;line-height:90rpx" bindtap='save'>完成</view>

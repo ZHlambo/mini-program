@@ -4,8 +4,11 @@
   </view>
 </component> -->
 <view>
-  <view style="width:70px;height:70px">
+  <imageswiper srcs='{{["http://miniprogram-static.intbee.com/FmD13ysqcyiqZKMfcBjw1dFjLAKA","http://miniprogram-static.intbee.com/FjAD5lkA0zUbU3ZX_zWKv55dFTpU","http://miniprogram-static.intbee.com/Fh4NJe90EbqG5QJiV6mKUtrjGhiN"]}}' />
+  <view style="width:70px;height:70px;margin:20px">
     <upload bindupload="upload" src="{{src}}"></upload>
   </view>
-  <uploads/>
+  <view style="margin:20px">
+    <uploads/>
+  </view>
 </view>

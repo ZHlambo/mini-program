@@ -1,6 +1,7 @@
 {
   "pages":[
     "index/index",
+    "cut_image/index",
     "issues/index"
   ],
   "window":{

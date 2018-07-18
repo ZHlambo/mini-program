@@ -1,3 +1,26 @@
+export const windowWidthPX = wx.getSystemInfoSync().windowWidth;
+export const windowHeightPX = wx.getSystemInfoSync().windowHeight;
+export const windowWidthRPX = 750;
+export const pxTorpxScale = windowWidthRPX / windowWidthPX;
+export const windowHeightRPX = windowHeightPX * pxTorpxScale;
+
+/**
+ * 判断是本地图片还是远程图片（上传图片用）
+ *
+ * @return {boolean}
+ */
+export const isLocal = function (src) {
+  if (
+    src &&
+    src.indexOf('http://miniprogram') !== 0 &&
+    src.indexOf('https://miniprogram') !== 0 &&
+    src.indexOf('http://static.d.intbee.com') !== 0 &&
+    src.indexOf('https://static.d.intbee.com') !== 0
+  ) {
+    return true;
+  }
+  return false;
+};
 
 /**
  * 线程队列，先进线执行

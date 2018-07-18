@@ -2,6 +2,7 @@
   "usingComponents": {
     "component": "/components/RefreshAndLoadMore",
     "upload": "/components/Upload",
+    "imageswiper": "/components/SwiperAutoHeight",
     "uploads": "/components/UploadImages"
   }
 }
