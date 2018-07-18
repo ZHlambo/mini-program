@@ -1,4 +1,6 @@
-var url = 'https://up-z2.qiniup.com';
+const url = 'https://up-z2.qiniup.com';
+const getTokenUrl = '/token'
+const Authorization = "Authorization";
 
 export function upload(filePath, success, fail, progress) {
   let options = { filePath};
@@ -15,10 +17,10 @@ export function upload(filePath, success, fail, progress) {
   this.tokenPromise = new Promise(resolve => {
     if (!time || new Date(time) <= new Date()) {
       wx.request({
-        url: 'https://test-wechatapp.intbee.com/api/product/up/image/token',
+        url: getTokenUrl,
         method: "get",
         header: {
-          Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI1MDEiLCJzdWIiOiI1YjE2M2ZiMWI4YjI0NTAwMDU5YjhiNjMiLCJpYXQiOjE1MzE3MTA4ODE3ODEsImV4cCI6MTUzMTczNjA4MTc4MX0.vPufDKkLqGtWktSPwW0nrcOs - 9TqODeaxL7_JtL465I"
+          Authorization
         },
         success: function(result) {
           let res = result.data.result;
