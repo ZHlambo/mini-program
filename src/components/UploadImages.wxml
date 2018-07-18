@@ -1,0 +1,9 @@
+<view class="imageList">
+  <view class="imageItem" wx:for="{{srcs}}" wx:key="{{item}}">
+    <upload data-index="{{index}}" src="{{item}}" bindupload="_upload" bindfail="_fail" />
+    <image class="delete" data-index="{{index}}" bindtap='_deleteImage' src="/images/delete.png"></image>
+  </view>
+  <view wx:if="{{srcs.length < count}}" class="imageItem" bindtap='_chooseImages'>
+    <image src="https://miniprogram-static.intbee.com/FmFvCRaemursNXbEhrdZA8Wz6bLL"></image>
+  </view>
+</view>

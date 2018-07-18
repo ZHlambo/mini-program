@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "component": "/components/RefreshAndLoadMore",
+    "upload": "/components/Upload",
+    "uploads": "/components/UploadImages"
+  }
+}

@@ -1,0 +1,12 @@
+<view style="width:100%;height:100%;" bindtap='_chooseImage'>
+  <image wx:if="{{!src}}" style="width:100%;height:100%" mode="aspectFit" src="https://miniprogram-static.intbee.com/FmFvCRaemursNXbEhrdZA8Wz6bLL">
+  </image>
+
+  <image wx:else style="width:100%;height:100%" mode="aspectFit" src="{{src}}">
+  </image>
+
+  <view wx:if="{{canvasId}}" style="position:fixed;width:100%;height:100%;display:block;top:100%;left:100%">
+    <canvas canvas-id="{{canvasId}}" style="width:{{windowWidthPX}}px;height:{{imgHeight>windowHeightPX?imgHeight :windowHeightPX}}px;"></canvas>
+
+  </view>
+</view>

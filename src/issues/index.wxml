@@ -1,0 +1,19 @@
+<!--issues/index.wxml-->
+
+<view>
+  <view>
+    app的数据
+  </view>
+  <view>{{appData.init}}</view>
+  <view>getApp()的数据</view>
+  <view>{{appData.init}}</view>
+  <!-- <view>onLoad完成后修改globalData中init:</view>
+  <view>{{nextGlobalData.init}}</view> -->
+  <view>
+    <text style="background:red;padding:2px 5px;border-radius:5px;color:white;font-size:14px;" bindtap='changeApp'>修改app</text>
+  </view>
+  <view>
+    <text style="background:red;padding:2px 5px;border-radius:5px;color:white;font-size:14px;" bindtap='changeGetApp'>修改getApp()</text>
+  </view>
+
+</view>
