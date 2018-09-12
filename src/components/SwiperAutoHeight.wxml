@@ -5,7 +5,7 @@
         <image data-index="{{index}}" bindload="loadImage" mode="widthFix" src="{{item.image || item}}" style="width:{{windowWidthRPX}}rpx;"></image>
       </view>
     </view>
-    <view wx:if="{{images.length > 11}}" class="dots">
+    <view wx:if="{{images.length > 1}}" class="dots">
       <view wx:for="{{images}}" wx:key="{{index}}" class="dot {{current==index ? 'current' : ''}}"></view>
     </view>
   </view>
