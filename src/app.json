@@ -1,8 +1,8 @@
 {
   "pages":[
-    "index/index",
-    "cut_image/index",
-    "issues/index"
+    "pages/index/index",
+    "pages/cut_image/index",
+    "pages/issues/index"
   ],
   "window":{
     "backgroundTextStyle":"light",

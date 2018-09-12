@@ -1,5 +1,5 @@
 // pages/cut_image/index.js
-import { pxTorpxScale, windowWidthPX, windowWidthRPX, windowHeightPX, windowHeightRPX} from "../utils/utils.js"
+import { pxTorpxScale, windowWidthPX, windowWidthRPX, windowHeightPX, windowHeightRPX} from "../../utils/utils.js"
 const bottomRPX = 90;
 const bottomPX = bottomRPX / pxTorpxScale;
 const windowSide = 3 / 4 * windowHeightPX;

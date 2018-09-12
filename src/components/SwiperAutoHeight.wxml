@@ -1,11 +1,12 @@
-<view style="display:flex;flex-wrap: nowrap;position:relative;width:100%;overflow:hidden;" catchtouchmove='{{touching ? "_move" : undefined}}'>
-  <view bindtouchstart='_start' bindtouchend='_end' bindtouchcancel='_end' data-index="{{index}}" wx:for="{{images}}" wx:key="{{index}}" style="transform:translate({{translate}}rpx,0);height:{{((showHeight || images[current].height) + 'rpx') || 'auto'}};transition:{{!touching ? 'height .3s,transform .3s' : ''}}">
-    <view style="overflow:hidden;height:100%">
-    <!-- {{showHeight}}{{images[current].height}} -->
-      <image data-index="{{index}}" bindload="loadImage" mode="widthFix" src="{{item.image || item}}" style="width:{{windowWidthRPX}}rpx;"></image>
+<view style="width:100%;position:relative;overflow:hidden">
+  <view style="float:left;width:{{windowWidthRPX * images.length}}rpx;" catchtouchmove='{{touching ? "_move" : undefined}}'>
+    <view bindtouchstart='_start' bindtouchend='_end' bindtouchcancel='_end' data-index="{{index}}" wx:for="{{images}}" wx:key="{{index}}" style="float:left;transform:translate({{translate}}rpx,0);height:{{((showHeight || images[current].height) + 'rpx') || 'auto'}};transition:{{!touching ? 'height .3s,transform .3s' : ''}}">
+      <view style="overflow:hidden;height:100%">
+        <image data-index="{{index}}" bindload="loadImage" mode="widthFix" src="{{item.image || item}}" style="width:{{windowWidthRPX}}rpx;"></image>
+      </view>
     </view>
-  </view>
-  <view wx:if="{{images.length > 1}}" class="dots">
-    <view wx:for="{{images}}" wx:key="{{index}}" class="dot {{current==index ? 'current' : ''}}"></view>
+    <view wx:if="{{images.length > 1}}" class="dots">
+      <view wx:for="{{images}}" wx:key="{{index}}" class="dot {{current==index ? 'current' : ''}}"></view>
+    </view>
   </view>
 </view>
